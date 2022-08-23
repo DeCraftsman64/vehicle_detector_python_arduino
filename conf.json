@@ -1,0 +1,50 @@
+{
+  "FOLDER_DETAILS": {
+    "Folder 1": {
+      "path": "src/demo_images/set_1",
+      "sort": true,
+      "render_boxes": true,
+      "reverse": false,
+      "run": false,
+      "conf": {
+        "send": true,
+        "show": true
+      }
+    },
+    "Folder 2": {
+      "path": "src/demo_images/set_2",
+      "sort": false,
+      "render_boxes": true,
+      "reverse": true,
+      "run": true,
+      "conf": {
+        "send": true,
+        "show": true
+      }
+    },
+    "Folder 3": {
+      "path": "src/demo_images/set_3",
+      "sort": true,
+      "render_boxes": true,
+      "reverse": true,
+      "run": false,
+      "conf": {
+        "send": true,
+        "show": true
+      }
+    }
+  },
+  "ARDUINO_CONFIGURATION": {
+    "conf": {
+      "port": "/dev/ttyACM0",
+      "baudrate": 9600,
+      "timeout": 4
+    },
+    "auto_send": true,
+    "keep_connection": true
+  },
+  "settings": {
+    "controller": true,
+    "monitor": true
+  }
+}

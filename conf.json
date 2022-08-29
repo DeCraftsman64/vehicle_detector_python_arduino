@@ -27,7 +27,7 @@
       "sort": true,
       "render_boxes": true,
       "reverse": true,
-      "run": false,
+      "run": true,
       "conf": {
         "send": true,
         "show": true

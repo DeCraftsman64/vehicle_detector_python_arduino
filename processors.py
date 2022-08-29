@@ -105,12 +105,17 @@ def compare_all_images(images_folder, group: Group,
 
 
 def re_select(i, images):
-    img = images[i]
-    gray = cv2.cvtColor(img.get_img(), cv2.COLOR_BGR2GRAY)
-    path = "src/temp/" + img.name
-    cv2.imwrite(path, gray)
-    new_img = cv2.imread(path)
-    images[i].set_img(new_img)
+    img = images[i].get_img()
+    # gray = cv2.cvtColor(img.get_img(), cv2.COLOR_BGR2GRAY)
+    # path = "src/temp/" + img.name
+    # cv2.imwrite(path, gray)
+    # new_img = cv2.imread(path)
+    # images[i].set_img(new_img)
+    s_w, s_h, s_z = img.shape
+    cv2.rectangle(img,
+                  (0, 0),
+                  (s_h, s_w - 5),
+                  (255, 255, 255), 10)
     return generate_img(images, int(len(images.tolist()) / 2))
 
 
@@ -159,7 +164,7 @@ def render_scan(selected_image: Image, other_images: List[Image]):
     # Rendering Text
     cv2.putText(s_img,
                 "Status: Go!",
-                (int(s_w / 2 + 160), 50),
+                (int(20), int(s_h / 2)),
                 5, 2,
                 (100, 200, 0), 3)
 

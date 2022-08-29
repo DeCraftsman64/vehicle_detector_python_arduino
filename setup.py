@@ -53,6 +53,7 @@ class aConnection(threading.Thread):
                             data = arduino_connection.readline().decode("utf-8")
                             if len(data) > 0:
                                 # print(type(data))
+                                i = None
                                 if data.strip() == '--end--':
                                     print_timestamp(f"\n\tConnection made at: ", 0, 1)
                                 elif data.strip() == '__loop_ended__':
@@ -67,8 +68,12 @@ class aConnection(threading.Thread):
                                 # elif data.strip() == "lane_3.jpg":
                                 #     i = re_select(2, self._ims)
                                 # elif data.strip() == "lane_4.jpg":
-                                #     i = re_select(3, self._ims)
+                                #     i = re_select(2, self._ims)
+                                # else:
+                                #     print("\narduino:: ", data)
+                                # if i is not None:
                                 #     try:
+                                #         cv2.destroyAllWindows()
                                 #         display_on_pc(self._wn, i)
                                 #     except Exception as e:
                                 #         sys.stderr.write(str(e))
@@ -126,7 +131,7 @@ def display_on_pc(window_name, image):
         #         break
     except Exception as e:
         sys.stderr.write(str(e))  # propagating the error to the standard error handler
-        # cv2.destroyAllWindows()  # closing any cv2 window if exist
+        cv2.destroyAllWindows()  # closing any cv2 window if exist
 
 
 def load_conf(file_path='conf.json'):
